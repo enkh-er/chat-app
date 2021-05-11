@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.NewFriend">
+   <children>
+      <Label layoutX="43.0" layoutY="22.0" style="-fx-font-size: 16;" text="Та эхлээд найзаар нэмнэ үү" />
+      <Label fx:id="lblName" layoutX="50.0" layoutY="82.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Name" AnchorPane.leftAnchor="30.0" />
+      <TextField fx:id="txtAddress" layoutX="104.0" layoutY="141.0" />
+      <TextField fx:id="txtPort" layoutX="104.0" layoutY="180.0" text="9000" />
+      <Label layoutX="29.0" layoutY="145.0" text="IP Address" AnchorPane.leftAnchor="30.0" />
+      <Label layoutX="30.0" layoutY="184.0" text="Port" AnchorPane.leftAnchor="30.0" />
+      <Button layoutX="170.0" layoutY="234.0" mnemonicParsing="false" onAction="#closeDialogStage" prefHeight="25.0" prefWidth="111.0" text="Буцах" AnchorPane.rightAnchor="30.0" />
+      <Button layoutX="33.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleNewFriend" prefHeight="25.0" prefWidth="119.0" text="Нэмэх" AnchorPane.leftAnchor="30.0" />
+   </children>
+</AnchorPane>

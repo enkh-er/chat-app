@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="360.0" prefWidth="450.0" style="-fx-background-color: white; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.ProfileEditController">
+   <children>
+      <Label layoutX="91.0" layoutY="31.0" style="-fx-font-size: 24px;" text="Хэрэглэгчийн мэдээлэл">
+         <effect>
+            <DropShadow height="3.0" radius="1.0" width="3.0" />
+         </effect>
+      </Label>
+      <TextField fx:id="txtFirstName" layoutX="20.0" layoutY="79.0" prefHeight="27.0" prefWidth="148.0" promptText="Нэр" style="-fx-border-color: #ff7e5f; -fx-border-width: 0 0 2 0; -fx-background-insets: 0; -fx-background-color: white;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="272.0" />
+      <TextField fx:id="txtUserName" layoutX="59.0" layoutY="124.0" prefHeight="27.0" prefWidth="148.0" promptText="Нэвтрэх нэр" style="-fx-border-color: #ff7e5f; -fx-border-width: 0 0 2 0; -fx-background-insets: 0; -fx-background-color: white;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="272.0" />
+      <Button layoutX="33.0" layoutY="247.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #ff7e5f; -fx-text-fill: white; -fx-font-weight: bold;" text="Өөрчлөх" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="269.0" />
+      <Button layoutX="253.0" layoutY="247.0" mnemonicParsing="false" onAction="#closeDialogStage" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #ff7e5f; -fx-text-fill: white; -fx-font-weight: bold;" text="Буцах" AnchorPane.leftAnchor="253.0" AnchorPane.rightAnchor="27.0" />
+      <TextField fx:id="txtMajor" layoutX="30.0" layoutY="168.0" prefHeight="27.0" prefWidth="148.0" promptText="Мэргэжил" style="-fx-border-color: #ff7e5f; -fx-border-width: 0 0 2 0; -fx-background-insets: 0; -fx-background-color: white;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="272.0" />
+      <TextField fx:id="txtLastName" layoutX="256.0" layoutY="79.0" prefHeight="27.0" prefWidth="170.0" promptText="Овог" style="-fx-border-color: #ff7e5f; -fx-border-width: 0 0 2 0; -fx-background-insets: 0; -fx-background-color: white;" AnchorPane.rightAnchor="30.0" />
+      <TextField fx:id="txtPhone" layoutX="250.0" layoutY="168.0" prefHeight="27.0" prefWidth="170.0" promptText="Утас" style="-fx-border-color: #ff7e5f; -fx-border-width: 0 0 2 0; -fx-background-insets: 0; -fx-background-color: white;" AnchorPane.rightAnchor="30.0" />
+      <DatePicker fx:id="dpBirth" layoutX="254.0" layoutY="126.0" prefHeight="25.0" prefWidth="170.0" AnchorPane.rightAnchor="30.0" />
+   </children>
+</AnchorPane>
