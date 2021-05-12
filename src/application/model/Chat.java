@@ -10,10 +10,17 @@ import javafx.beans.property.StringProperty;
  * @author enkherdene
  */
 public class Chat {
+	/**
+	 * chatnii id
+	 */
     private IntegerProperty pk_id;
+    /**Chat bichsen user-iin id*/
     private IntegerProperty fk_user_id;
+    /**Chat bichsen naiziin id*/
     private IntegerProperty fk_friend_id;
+    /**2 hereglegchin Bichsen message*/
     private StringProperty message;
+    /**Chat bichsen ognoo*/
     private StringProperty send_date;
 
     public Chat() {

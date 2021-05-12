@@ -10,13 +10,21 @@ import javafx.beans.property.StringProperty;
  * @author enkherdene
  */
 public class User {
+	/**hereglegchin id*/
     private IntegerProperty pk_id;
+    /**Hereglegchiin newtreh ner*/
     private StringProperty name;
+    /**Hereglegchiin password*/
     private StringProperty password;
+    /**Hereglegchiin ner*/
     private StringProperty firstName;
+    /**Hereglegchiin owog*/
     private StringProperty lastName;
+    /**Hereglegchiin mergejil*/
     private StringProperty major;
+    /**Hereglegchiin torson odor*/
     private StringProperty birthday;
+    /**Hereglegchiin utas*/
     private StringProperty phone;
 
     public User() {

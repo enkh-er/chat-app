@@ -10,9 +10,13 @@ import javafx.beans.property.StringProperty;
  * @author  enkherdene
  */
 public class Friend {
+	/**Hereglegchiin id*/
     private IntegerProperty pk_id;
+    /**Naiziin id*/
     private IntegerProperty fk_user_id;
+    /**Naiziin ip address*/
     private StringProperty ipAddress;
+    /**Naiziin ashiglaj bui port*/
     private IntegerProperty port;
 
     public Friend() {

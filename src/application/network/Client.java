@@ -2,14 +2,25 @@ package application.network;
 import java.net.*;
 import java.util.ArrayList;
 import java.io.*;
-
+/**
+ * Multithreading ashiglan hereglegchidtei haritsana
+ *
+ */
 public class Client extends Thread{
-
+   //server-t holbogdson hereglegchid
     private ArrayList<Client> clients;
+    //user-tai haritsahad ashigladag svljeenii socket
     private Socket socket;
+    //Svljeegeer ireh zurwas unshih object
     private BufferedReader reader;
+    //Svljeegeer ilgeeh zurwasiig damjuulah object
     private PrintWriter writer;
 
+    /**
+     * Constructor method
+     * @param socket =  user-iin socket
+     * @param clients = server-t holbogdson hereglegchid
+     */
     public Client(Socket socket, ArrayList<Client> clients) {
         try {
             this.socket = socket;
@@ -21,6 +32,9 @@ public class Client extends Thread{
         }
     }
 
+    /**
+     * User-ees irsen zurwasiig sonsoj, Bvh holbogdson hereglegchid zurwasiig damjuulna
+     */
 	@Override
     public void run() {
         try {
@@ -35,6 +49,7 @@ public class Client extends Thread{
             e.printStackTrace();
         }
         finally {
+        	clients.remove(this);
             try {
                 reader.close();
                 writer.close();

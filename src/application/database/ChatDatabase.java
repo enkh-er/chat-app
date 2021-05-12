@@ -8,14 +8,21 @@ import java.util.*;
 import application.model.Friend;
 import application.model.Chat;
 import application.model.User;
-
+/**
+ * Ugugdliin santai haritsah class
+ * @author enkherdene
+ *
+ */
 public class ChatDatabase {
 	Connection conn=MySqlDaoFactory.createConnection();
 	ResultSet rs=null;
     PreparedStatement ps=null;
     public ChatDatabase(){
-    	
     }
+    /**
+     * Bvh hereglegchiin medeelliig ogogdliin sangaas olj butsaana
+     * @return Bvh hereglegchiin medeelel
+     */
 	public List<User> findAllUser() {
     	List<User> list=new ArrayList<User>();
 		
@@ -32,7 +39,11 @@ public class ChatDatabase {
 		}
 		return list;
 	}
-	
+	/**
+	 * Parametreer ogogdson id-tai hereglegchiig olno
+	 * @param id = haih hereglegchiin id
+	 * @return - Parametreer ogogdson id-tai hereglegch
+	 */
 	public User userFindById(int id) {
 		String sql="Select * from user where pk_id=?";
 		User user=null;
@@ -50,6 +61,11 @@ public class ChatDatabase {
 		return user;
 	}
 	
+	/**
+	 * Parametreer ogogdson hereglegchiig ogogdliin sand hadgalna 
+	 * @param user = hadgalah hereglegch
+	 * @return = amjilttai hadgalsan bol true, vgvi bol false
+	 */
 	public boolean saveUser(User user) {
 		String sql ="insert into user (name,password,firstname,lastname,major,date_of_birth,mobile_number) values (?,?,?,?,?,?,?)";
     	try {
@@ -69,7 +85,11 @@ public class ChatDatabase {
     		return false;
     	}
 	}
-	
+	/**
+	 * Parametreer ogogdson hereglegchiin medeellig oorchilno
+	 * @param user = oorchiloh hereglegch
+	 * @return =  amjilttai bol true, vgvi bol false
+	 */
 	public boolean updateUser(User user) {
 		System.out.println(user.getFirstName());
 		String sql="update user set name=?,firstname=?,lastname=?,major=?,date_of_birth=?,mobile_number=? where pk_id=?";
@@ -90,7 +110,11 @@ public class ChatDatabase {
     		return false;
 		}
 	}
-	
+	/**
+	 * Parametreer ogogdson hereglegchiig ogogdliin sangaas ustgana
+	 * @param u = ustgah hereglegch
+	 * @return amjilttai bol true, vgvi bol false
+	 */
 	public boolean delete(User u) {
 		String sql = "delete from user where pk_id = ?";
 		try {
@@ -105,7 +129,10 @@ public class ChatDatabase {
 		}
 		
 	}
-	
+	/**
+	 * Bvh friend-iin medeelllig butsaan a
+	 * @return = bvh friend-iin medeelel
+	 */
 	public List<Friend> findAllFriend() {
     	List<Friend> list=new ArrayList<Friend>();
 		
@@ -122,7 +149,11 @@ public class ChatDatabase {
 		}
 		return list;
 	}
-	
+	/**
+	 * Shine friend-ig ogogdliin sand hadgalna
+	 * @param friend = shine friend
+	 * @return amjilttai bol true, vgvi bol false
+	 */
 	public boolean saveFriend(Friend friend) {
 		String sql ="insert into friend (pk_id,fk_user_id,ip_address,port) values (?,?,?,?)";
     	try {
@@ -139,7 +170,12 @@ public class ChatDatabase {
     		return false;
     	}
 	}
-	
+	/**
+	 * Parametreer ogogdson 2 id-tai friend-g ustgana
+	 * @param id1 = hereglegchiin id
+	 * @param id2 = naiziin id
+	 * @return = amjilttai bol true, vgvi bol false
+	 */
 	public boolean deleteFriend(int id1, int id2) {
 		String sql = "delete from friend where  pk_id = ? and fk_user_id=?";
 		try {
@@ -155,7 +191,11 @@ public class ChatDatabase {
 		}
 		
 	}
-	
+	/**
+	 * parametreer damjij irsen chatiig hadgalna
+	 * @param chat = bichsen chat
+	 * @return amjilttai bol true, vgvi bol false
+	 */
 	public boolean saveChat(Chat chat) {
 		String sql ="insert into chat (fk_user_id,fk_friend_id,message,send_date) values (?,?,?,?)";
     	try {
@@ -172,7 +212,10 @@ public class ChatDatabase {
     		return false;
     	}
 	}
-	
+	/**
+	 * Bvh chatiig olno
+	 * @return bvh chat
+	 */
 	public List<Chat> findAllChat() {
     	List<Chat> list=new ArrayList<Chat>();
 		
@@ -189,7 +232,12 @@ public class ChatDatabase {
 		}
 		return list;
 	}
-	
+	/**
+	 * Ogogdson 2 tai hereglegchiin chatiig olno
+	 * @param id1 = hereglegch 1
+	 * @param id2 = naiziin id
+	 * @return = 2 hereglegchiin hoorondoo bichsen chat
+	 */
 	public List<Chat> findByIdChat(int id1, int id2) {
     	List<Chat> list=new ArrayList<Chat>();
 		try {
@@ -208,8 +256,4 @@ public class ChatDatabase {
 		}
 		return list;
 	}
-	
-	
-	
-
 }

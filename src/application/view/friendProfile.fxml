@@ -4,13 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="pane" prefHeight="311.0" prefWidth="304.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.FriendProfileController">
+<AnchorPane fx:id="pane" prefHeight="311.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.FriendProfileController">
    <children>
       <Button layoutX="40.0" layoutY="233.0" maxWidth="170.0" minWidth="170.0" mnemonicParsing="false" onAction="#closeDialogStage" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #ff7e5f; -fx-text-fill: white; -fx-font-weight: bold;" text="Буцах" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="220.0" />
-      <Label fx:id="txtFirstName" layoutX="126.0" layoutY="43.0" text="Label" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="30.0" />
-      <Label fx:id="txtLastName" layoutX="136.0" layoutY="53.0" text="Label" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="60.0" />
-      <Label fx:id="txtMajor" layoutX="146.0" layoutY="63.0" text="Label" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="120.0" />
-      <Label fx:id="txtBirthDate" layoutX="146.0" layoutY="63.0" text="Label" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="90.0" />
-      <Label fx:id="txtPhone" layoutX="156.0" layoutY="73.0" text="Label" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="150.0" />
+      <Label fx:id="txtFirstName" layoutX="125.0" layoutY="29.0" text="Label" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="30.0" />
+      <Label fx:id="txtLastName" layoutX="136.0" layoutY="53.0" text="Label" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="60.0" />
+      <Label fx:id="txtMajor" layoutX="146.0" layoutY="63.0" text="Label" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="120.0" />
+      <Label fx:id="txtBirthDate" layoutX="146.0" layoutY="63.0" text="Label" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="90.0" />
+      <Label fx:id="txtPhone" layoutX="156.0" layoutY="73.0" text="Label" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="150.0" />
+      <Label layoutX="40.0" layoutY="30.0" text="Нэр:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="30.0" />
+      <Label layoutX="50.0" layoutY="40.0" text="Овог:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="60.0" />
+      <Label layoutX="60.0" layoutY="50.0" text="Төрсөн огноо:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="90.0" />
+      <Label layoutX="70.0" layoutY="60.0" text="Утас:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="150.0" />
+      <Label layoutX="70.0" layoutY="60.0" text="Мэргэжил:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="120.0" />
    </children>
 </AnchorPane>

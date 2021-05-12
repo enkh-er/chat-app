@@ -1,9 +1,8 @@
 package application.view;
 import javafx.fxml.FXML;
+
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.NodeOrientation;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -23,75 +22,104 @@ import javafx.util.*;
 import javafx.event.*;
 import java.net.*;
 import java.time.LocalDate;
+
+/**
+ * Vndsen main fxml-iin controller class
+ * @author enkherdene
+ *
+ */
 public class MainController extends Controller{
 
 	@FXML
-    private Label lblUserName;
+    private Label lblUserName;//hereglegchiin neriig awna
 	
 	@FXML
-    private Label lblFriendName;
+    private Label lblFriendName; //Chat bichij bui naiziin neriig awna
 
     @FXML
-    private TextField txtSearch;
+    private TextField txtSearch; //user haih textfield
 
     @FXML
-    private TableView<User> table;
+    private TableView<User> table; // user-uudiig haruulah table
 
     @FXML
-    private TableColumn<User, String> colUserName;
+    private TableColumn<User, String> colUserName; //user-iin neriig haruulah column
 
     @FXML
-    private TableColumn<User, Void> colBtn;
+    private TableColumn<User, Void> colBtn; //zurwas bichih button-g haruulah column
     
     @FXML
-    private TableColumn<User, Void> friendProfile;
+    private TableColumn<User, Void> friendProfile; //profile harah button haruulah column
 
     @FXML
     private TextArea txtArea;
 
     @FXML
     private TextArea txtMsg;
-    
+    /**Login hiisen user*/
 	private User user;
-	
+	/**zurwas bichij bui naiz*/
 	private Friend chatFriend;
-	
+	/**zurwas bichij bui naiziin ner*/
 	private String friendName;
-	
+	/**
+	 * Zurwas bichih naizaa songoson esehiig zaana, songoson bol true
+	 */
 	private boolean send=false;
 	
 	private boolean running=false;
-	
+	/**
+	 * Hereglegchiin bichsen zurwas
+	 */
 	private String message="";
-	
+	/**User-iin ip address*/
 	private String ipAdress="localhost";
 	
+	/**
+	 * Table haruulah hereglegchdiin medeelel
+	 */
 	private ObservableList<User> users = FXCollections.observableArrayList();
-	
-
+	/**
+	 * Socket-oos ogogdol unshig object
+	 */
     BufferedReader reader;
+    /**
+	 * Socket-oos ogogdol bichih object
+	 */
     PrintWriter writer;
     Socket socket;
    
-
+    /**
+     * Login hiisen hereglegchiig butsaana
+     * @return
+     */
 	public User getUser() {
 		return user;
 	}
-	
+	/**
+	 * Login hiisen hereglegchiin ip address-g tohiruulna
+	 * @param ipAdress
+	 */
 	public void setIp(String ipAdress) {
 		this.ipAdress=ipAdress;
 	}
-	
+	/**
+	 * Login hiisen user-iig onoono
+	 * @param user
+	 */
 	public void setUser(User user) {
 		this.user = user;
 		initMain();		
 	}
+	/**
+	 * Login hiisen user-iin neriig label-d onoono
+	 */
 	public void initMain() {
 		lblUserName.setText(user.getFirstName()+" "+user.getLastName());
 	}
 	
 	  /**
-     * Хүснэгтэд өөрчлөх товчлуурыг нэмнэ
+     * Хүснэгтэд zurwas bichih товчлуурыг нэмнэ
      */
     private void addButtonToTable() {
 
@@ -101,7 +129,7 @@ public class MainController extends Controller{
                 final TableCell<User, Void> cell = new TableCell<User, Void>() {
                 		 private final Button btn = new Button("Зурвас Бичих");
                          {
-                             //Butten deer darah ved duudagdana. Tuhain mornii user-iin medeelliig 
+                             //Butten deer darah ved duudagdana. Tuhain mornii user-iin medeelliig awna
                              btn.setOnAction((ActionEvent event) -> {
                             	 User friend= table.getItems().get(getIndex());
                             	 //naiz mon esehiig shalgana
@@ -112,7 +140,7 @@ public class MainController extends Controller{
                             			 return;
                             		 }
                             	 }
-                            	 //naiz bish bol naizaar nemneenh
+                            	 //naiz bish bol naizaar nemeh huudsiig duudna
                             	 addFrient(friend);
                              });
                          }
@@ -133,8 +161,8 @@ public class MainController extends Controller{
         colBtn.setCellFactory(cellFactory);
     }
     
-	  /**
-     * Busad hereglegchidiin profile-ig haruulah buttong vvsgene
+	 /**
+     * Busad hereglegchidiin profile-ig haruulah button-g vvsgene
      */
     private void addFriendProBtn() {
 
@@ -144,10 +172,10 @@ public class MainController extends Controller{
                 final TableCell<User, Void> cell = new TableCell<User, Void>() {
                 		 private final Button btn = new Button("Профайл");
                          {
-                             //Butten deer darah ved duudagdana. Tuhain mornii user-iin medeelliig 
+                             //Butten deer darah ved duudagdana. Tuhain mornii user-iin medeelliig awna
                              btn.setOnAction((ActionEvent event) -> {
                             	 User friend= table.getItems().get(getIndex());
-                            	 //naiz mon esehiig shalgana
+                            	 //delgerengvi medeellig haruulah tsonhruu shiljine
                             	 setFriendPro(friend);
                              });
                          }
@@ -169,7 +197,7 @@ public class MainController extends Controller{
     }
     
     /**
-     * Songoson hereglegchiin medeelliig haruulna
+     * Songoson hereglegchiin medeelliig haruulah tsonhiig duudna
      */
     public void setFriendPro(User f) {
     	try {
@@ -181,6 +209,7 @@ public class MainController extends Controller{
             stage.initOwner(parentStage);
             Scene scene = new Scene(page);
             stage.setScene(scene);
+            //friendProfile controller-iig onoono
             FriendProfileController controller = loader.getController();
             controller.setDb(db);
             controller.setDialogStage(stage);
@@ -193,7 +222,14 @@ public class MainController extends Controller{
             e.printStackTrace();
         }
     }
-    
+    /**
+     * Hereglegch chat bichih naizaa songoson bol duudagdana
+     * textarea-g hooson bolgono
+     * chat bichig naiziin neriig label-d onoono
+     * 2 hereglegchiin bichij bsn chatig ogogdliin sangaas olno
+     * @param f = chat bichig naiz
+     * @param name = login hiisen user
+     */
     public void writeChat(Friend f,String name) {
     	message="";
     	friendName=name;
@@ -243,7 +279,7 @@ public class MainController extends Controller{
     }
     
     /**
-     * Edit profile button der darah ved hereglegchiin medeelliig oorchloh tsonh garch irne
+     * Shineer naiz nemeh tsonh garch irne
      */
     public void addFrient(User f) {
     	try {
@@ -266,7 +302,9 @@ public class MainController extends Controller{
             e.printStackTrace();
         }
     }
-    
+    /**
+     * Logout hiisen tul login huudastuu shiljine
+     */
     public void logout() {
     	 parentStage.close();
          owner.initLogin();
@@ -278,16 +316,19 @@ public class MainController extends Controller{
 	    addButtonToTable();
 	    addFriendProBtn();
 	    running=true;
-	    
+	    //shine thread vvsgene
 	    taskThread= new Thread(new Runnable() {
 	    	
 	        @Override
 	        public void run() {
 	        	try {
+	        		//Login hiisen hereglegchid  2345 port, localhost der shine socket vvsgene servert holbogdoh hvselt ilgeene
 	    		    socket = new Socket(ipAdress, 2345);
 	                System.out.println("Socket is connected with server!");
 	                reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 	                writer = new PrintWriter(socket.getOutputStream(), true);
+	                //busad hereglegchidtei haritsana
+	               //Busad hereglegchdiin bichsen zurwasiig message huwisagchid onoono
 	                while(running){
 	  	        	  try {
 	  	        		  message = reader.readLine();
@@ -300,10 +341,11 @@ public class MainController extends Controller{
 	  	            } catch (InterruptedException e) {
 	  	              e.printStackTrace();
 	  	            }
-
+	  	            //Busad hereglegchdiin bichsen zurwasiig haruulna
 	  	            Platform.runLater(new Runnable() {
 	  	              @Override
 	  	              public void run() {
+	  	            	  //hereglegch zurwas bichih naizaa songoson baih yostoi
 	  	            	if(send) {
 	  	            		txtArea.appendText(message + "\n");
 	  	            	}
@@ -320,9 +362,12 @@ public class MainController extends Controller{
 	    	 }
 	      });
 	    taskThread.setDaemon(true);
+	    //thread-g ehlvvlne
 	    taskThread.start();
     }
-	
+	/**
+	 * Hereglegchiin bichsen zurwasiig svljeend holbogdson hereglegchdedrvv damjuulna
+	 */
 	  public void sendMsg() {
 	    	if(send) {
 	    		String msg = txtMsg.getText();
@@ -380,6 +425,7 @@ public class MainController extends Controller{
     public void setOwner(Main owner) {
         this.owner = owner;
         users.addAll(owner.getUsers());
+        users.remove(this.user);
         table.setItems(users);
     }
 	

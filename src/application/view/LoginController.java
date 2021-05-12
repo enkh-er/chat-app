@@ -6,18 +6,26 @@ import application.Controller;
 import application.model.User;
 
 import java.io.IOException;
-
+/**
+ * Login fxml-iin controllor class
+ * @author enkherdene
+ *
+ */
 public class LoginController extends Controller {
 
     @FXML
-    private TextField txtName;
+    private TextField txtName; //login hiisen user-iin newtreh ner
 
     @FXML
-    private TextField txtPassword;
+    private TextField txtPassword;//login hiisen user-iin password
     
     @FXML
-    private TextField txtIp;
+    private TextField txtIp;//login hiisen user-iin ip address
 
+    /**
+     * Login button daragdah ved duudagdana
+     * Hereglegchiin medeellig shalgaad zow bol programiin vndsen huudasruu shiljuulne
+     */
     public void handleLogin(){
     	if(isValid()) {
     		User user=chechUser();
@@ -53,6 +61,10 @@ public class LoginController extends Controller {
             return false;
         }
     }
+    /**
+     * Hereglegchiin medeellig ogogdliin sangaas shalgana
+     * @return = zow bol true, buruu bol false
+     */
     public User chechUser() {
     	User u=null;
     	for(User user:db.findAllUser()) {
@@ -62,6 +74,10 @@ public class LoginController extends Controller {
     	}
     	return u;
     }
+    /**
+     * Register button der daragdah ved duudagdana
+     * Register huudsiig duudna
+     */
     public void handleRegister(){
             parentStage.close();
             owner.userRegister();

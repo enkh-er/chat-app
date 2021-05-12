@@ -3,7 +3,10 @@ package application;
 import application.database.ChatDatabase;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-
+/**
+ * Bvh controller class-d baih niitleg zvilsiig aguulsan class
+ * @author enkherdene
+ */
 public class Controller {
 	/**
 	 * Etseg stage-iig awna
